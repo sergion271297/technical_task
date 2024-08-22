@@ -48,7 +48,10 @@
             <td th:text="${fish.catchDate.toString().substring(0,10)}"></td>
             <td>
               <div class="image-container">
-                <img th:src="@{'/images/'+${fish.imageFileName}}" alt="..." width="100">
+                <div th:each="imageFileName : ${fish.getImageFileNames}">
+                  <img th:src="@{'/images/'+${imageFileName}}" alt="..." width="100">
+                </div>
+
               </div>
             </td>
             <td>

@@ -19,13 +19,21 @@
 -- Table structure for table `fish`
 --
 
+DROP TABLE IF EXISTS `images`;
+CREATE TABLE `images` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `file_name` VARCHAR(255) NOT NULL,
+  `fish_id` INT,
+  CONSTRAINT fk_fish FOREIGN KEY (fish_id) REFERENCES fish(id) ON DELETE CASCADE
+);
+
+
 DROP TABLE IF EXISTS `fish`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `fish` (
   `id` int NOT NULL AUTO_INCREMENT,
   `catch_date` datetime(6) DEFAULT NULL,
-  `image_file_name` varchar(255) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
   `price` double NOT NULL,
   PRIMARY KEY (`id`)
