@@ -25,7 +25,7 @@ CREATE TABLE `users` (
   `username` varchar(255) NOT NULL UNIQUE,
   `role` enum('ADMIN','USER') NOT NULL,
   PRIMARY KEY (`id`)
-)
+);
 
 -- Create data for users
 INSERT INTO users (username, password, role) VALUES ('admin', 'admin', 'ADMIN');
